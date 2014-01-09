@@ -1,0 +1,13 @@
+Quirks:
+    braces
+    exception handling is fast?
+    tupple unpackong
+    iteration
+    goto
+    metaprogramming
+
+Tasks:
+    use reST
+    group related topics
+    move related topics to separate files
+    and make them run easy
