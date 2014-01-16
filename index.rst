@@ -9,7 +9,14 @@ Welcome to Python quirks's documentation!
 >>> import __hello__
 Hello world...
 
-And here are some more hidden python futures:
+I have picked some lesser known Python features.
+To check them on your python version run::
+
+    python -m doctest -v *.rst
+
+Enjoy reading.
+
+Contents:
 
 .. toctree::
    :maxdepth: 3
