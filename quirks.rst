@@ -1,7 +1,0 @@
-Pyton quirks
-============
-
-
-Data structures
----------------
-
