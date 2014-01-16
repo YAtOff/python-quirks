@@ -6,12 +6,19 @@
 Welcome to Python quirks's documentation!
 =========================================
 
-Contents:
+>>> import __hello__
+Hello world...
+
+And here are some more hidden python futures:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
-   quirks
+   controls
+   functions
+   sequences
+   types
+   tricks
 
 Indices and tables
 ==================
