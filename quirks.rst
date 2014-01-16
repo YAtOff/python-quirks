@@ -1,9 +1,13 @@
-1.
+============
+Pyton quirks
+============
+
+# Hello
 
 >>> import __hello__
 Hello world...
 
-2. Chaining comparison operators:
+# Chaining comparison operators:
 
 >>> x = 5
 >>> 1 < x < 10
@@ -18,7 +22,7 @@ True
 True
 
 
-3. Be careful with mutable default arguments
+# Be careful with mutable default arguments
 
 >>> def foo(x=[]):
 ...     x.append(1)
@@ -45,7 +49,7 @@ the mutable you'd like as default:
 [1]
 
 
-4. The for...else syntax (see http://docs.python.org/ref/for.html )
+# The for...else syntax (see http://docs.python.org/ref/for.html )
 
 >>> def find(seq, val):
 ...     for i in seq:
@@ -63,7 +67,7 @@ The "else" block will be normally executed at the end of the for loop, unless
 the break is called.
 
 
-5. iter() can take a callable and a sentinel
+# iter() can take a callable and a sentinel
 iter(callable, sentinel) -> iterator
 If a second argument, sentinel, is given to iter(), the first argument must be
 a callable. The created iterator will call the callable on each call to its
@@ -82,7 +86,7 @@ next() method, until the callabele return value equal to the sentinel.
 
 
 
-6. The step argument in slice operators. For example:
+# The step argument in slice operators. For example:
 
 >>> a = [1, 2, 3, 4, 5]
 >>> a[::2]  # iterate over the whole list in 2-increments
@@ -94,7 +98,7 @@ The special case x[::-1] is a useful idiom for 'x reversed'.
 [5, 4, 3, 2, 1]
 
 
-7. From 2.5 onwards dicts have a special method __missing__ that is invoked for missing items:
+# From 2.5 onwards dicts have a special method __missing__ that is invoked for missing items:
 
 >>> class MyDict(dict):
 ...  def __missing__(self, key):
@@ -117,7 +121,7 @@ There is also a dict subclass in collections called defaultdict that does pretty
 {'foo': [1, 2]}
 
 
-8. Readable regular expressions
+# Readable regular expressions
 
 In Python you can split a regular expression over multiple lines, name your matches and insert comments.
 
@@ -140,13 +144,13 @@ Example verbose syntax (from Dive into Python):
 found
 
 
-9. Named formatting
+# Named formatting
 
 >>> print("The {foo} is {bar}.".format(foo='answer', bar=42))
 The answer is 42.
 
 
-10. Passing generator comprehension to as argument of function
+# Passing generator comprehension to as argument of function
 
 >>> def to_list(gen):
 ...     return list(gen)
@@ -160,7 +164,7 @@ Is the same as:
 [(1, 0), (2, 0), (2, 1)]
 
 
-11. Nested list comprehensions and generator expressions
+# Nested list comprehensions and generator expressions
 
 >>> [(i,j) for i in range(3) for j in range(i)]
 [(1, 0), (2, 0), (2, 1)]
@@ -168,7 +172,7 @@ Is the same as:
 [(1, 0), (2, 0), (2, 1)]
 
 
-12. Multiple if statements in comprehension
+# Multiple if statements in comprehension
 
 The example is form the Udacity course 'Design of Computer Programs' with
 instructor Peter Norvig.
@@ -212,7 +216,7 @@ instructor Peter Norvig.
 >>> zebra_puzzle()
 (1, 5)
 
-13. Creating new types in a fully dynamic manner
+# Creating new types in a fully dynamic manner
 
 >>> NewType = type('NewType', (object,), {'x': 'hello'})
 >>> n = NewType()
@@ -228,7 +232,7 @@ which is exactly the same as
 'hello'
 
 
-14. enumerate
+# enumerate
 
 Wrap an iterable with enumerate and it will yield the item along with its
 index.
@@ -244,7 +248,7 @@ For example:
 3 d
 4 e
 
-15. In-place value swapping
+# In-place value swapping
 
 >>> a = 10
 >>> b = 5
@@ -256,7 +260,7 @@ For example:
 (5, 10)
 
 
-16. Multiplying by a boolean
+# Multiplying by a boolean
 
 >>> enabled = True
 >>> 'enabled' * enabled
@@ -270,7 +274,7 @@ This is because multiplication coerces the boolean to an integer (0 for False,
 N times.
 
 
-17. Python's advanced slicing operation has a barely known syntax element, the
+# Python's advanced slicing operation has a barely known syntax element, the
 ellipsis:
 
 >>> class C(object):
@@ -281,7 +285,7 @@ ellipsis:
 (slice(1, 2, None), Ellipsis, 3)
 
 
-18. pow() can also calculate (x ** y) % z efficiently.
+# pow() can also calculate (x ** y) % z efficiently.
 
 There is a lesser known third argument of the built-in pow() function that
 allows you to calculate xy modulo z more efficiently than simply doing
@@ -295,14 +299,14 @@ In comparison, (x ** y) % z didn't given a result in one minute on my machine
 for the same values.
 
 
-19. You can easily transpose an array with zip.
+# You can easily transpose an array with zip.
 
 >>> a = [(1,2), (3,4), (5,6)]
 >>> zip(*a)
 [(1, 3, 5), (2, 4, 6)]
 
 
-20. enumerate with different starting index
+# enumerate with different starting index
 
 enumerate has partly been covered in this answer, but recently I've found an
 even more hidden feature of enumerate that I think deserves its own post
@@ -318,7 +322,7 @@ argument:
 [(1, 'spam'), (2, 'ham'), (3, 'eggs')]
 
 
-21. Partial functions
+# Partial functions
 
 >>> from functools import partial
 >>> bound_func = partial(range, 0, 10)
@@ -328,14 +332,14 @@ argument:
 [0, 2, 4, 6, 8]
 
 
-22. dict's constructor accepts keyword arguments:
+# dict's constructor accepts keyword arguments:
 
 >>> dict(foo=1, bar=2)
 {'foo': 1, 'bar': 2}
 
 
 
-23. Sequence  multiplication and reflected operands
+# Sequence  multiplication and reflected operands
 
 >>> 'xyz' * 3
 'xyzxyzxyz'
@@ -389,7 +393,7 @@ We can override the  __mul__ method
 >>> l * -2
 [-6, -4, -2]
 
-24. Implicit concatenation
+# Implicit concatenation
 
 >>> s = 'Hello ' 'world'
 >>> s
@@ -401,7 +405,7 @@ We can override the  __mul__ method
 'Hello world'
 
 
-25. Assigning and deleting slices:
+# Assigning and deleting slices:
 
 >>> a = range(10)
 >>> a
@@ -423,7 +427,7 @@ Note: when assigning to extended slices (s[start:stop:step]), the assigned
 iterable must have the same length as the slice.
 
 
-26. You can build up a dictionary from a set of length-2 sequences. Extremely
+# You can build up a dictionary from a set of length-2 sequences. Extremely
 handy when you have a list of values and a list of arrays.
 
 >>> d = dict([ ('foo','bar'),('a',1),('b',2) ])
@@ -437,7 +441,7 @@ True
 True
 
 
-27. Creating enums
+# Creating enums
 
 >>> FOO, BAR, BAZ = range(3)
 >>> FOO
@@ -446,7 +450,7 @@ True
 1
 
 
-28. "Unpacking" to function parameters
+# "Unpacking" to function parameters
 
 >>> def foo(a, b, c):
 ...     print a, b, c
@@ -455,7 +459,7 @@ True
 1 2 3
 
 
-29. Operators can be called as functions:
+# Operators can be called as functions:
 
 >>> from operator import add
 >>> print reduce(add, [1, 2, 3, 4, 5, 6])
@@ -464,7 +468,7 @@ True
 
 
 
-30. infinite recursion in list
+# infinite recursion in list
 
 >>> a = [1,2]
 >>> a.append(a)
@@ -476,7 +480,7 @@ True
 True
 
 
-31. Manipulating Recursion Limit
+# Manipulating Recursion Limit
 
 Getting or setting the maximum depth of recursion with sys.getrecursionlimit()
 & sys.setrecursionlimit().
@@ -484,7 +488,7 @@ Getting or setting the maximum depth of recursion with sys.getrecursionlimit()
 We can limit it to prevent a stack overflow caused by infinite recursion.
 
 
-32. Slices & Mutability
+# Slices & Mutability
 
 Copying lists
 
@@ -508,7 +512,7 @@ Replacing lists
 
 
 
-33. Slices as lvalues. This Sieve of Eratosthenes produces a list that has
+# Slices as lvalues. This Sieve of Eratosthenes produces a list that has
 either the prime number or 0. Elements are 0'd out with the slice assignment in
 the loop.
 
@@ -527,7 +531,7 @@ To work, the slice on the left must be assigned a list on the right of the same
 length.
 
 
-34. getattr takes a third parameter
+# getattr takes a third parameter
 
 getattr(obj, attribute_name, default)
 
@@ -535,7 +539,7 @@ getattr(obj, attribute_name, default)
 False
 
 
-35. Cast from string using float():
+# Cast from string using float():
 
 >>> float('NaN')
 nan
